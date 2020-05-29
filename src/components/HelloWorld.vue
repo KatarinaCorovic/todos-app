@@ -1,58 +1,125 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="list">
+
+</div>
+
+<ul>
+  <li>
+    <input type="checkbox" id="ckeckbox1">
+<input type="text" v-bind:placeholder="placeholderValues.inputQuestion"   id="text1">
+<button>Clear List</button>
+  </li>
+
+  <li  v-for="(item, index) in duties" v-bind:key="index">
+    <span> {{ item.text }} </span>
+
+  </li>
+
+
+</ul>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+ data: function(){
+   return{
+     placeholderValues: {
+       inputQuestion: "What do you need to do?"
+     },
+
+
+     duties:[{
+       text: 'Learn Vue Js',
+     },
+     {
+       text:'Learn Javascript',
+     }
+     
+     ],
+     newDutie: [{
+       text:'',
+       checked:''
+     }]
+
+   }
+ }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+
+
+body{
+  margin:0;
+  padding:0;
+
+
+
+
+.hello{
+  border:20px solid #eff1f2;
+  max-width:1000px;
+  min-width:400px;
+  min-height:80px;
+  margin:0 auto;
+  margin-top:50px;
+
+ul{
+  display:inline - block;
+  margin:0 auto;
+  margin-left: -40px;
+
+ li:first-child{
+
+  // display: block;
+  // margin:0 auto;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:970px;
+  text-align: center;
+  background-color:#e7e8eb ;
+  height: 70px;
+  padding:15px;
+ }
+  
+
+  #checkbox1{
+    width:200px; 
+    
+    
+  }
+
+  #text1{
+    border:1px groove #d0e5fe;
+    border:5px ridge #80b6f5;
+    height: 50px;
+    width:700px;
+    padding-left: 10px;
+    border-radius: 1%;
+    font-size:15px;
+    
+  }
+
+  button{
+    padding-left: -30px;
+    width:100px;
+    height:40px;
+    background-color:white;
+    border:none;
+    border:1px solid rgb(145, 137, 137);
+  }
+
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+
+
 </style>
