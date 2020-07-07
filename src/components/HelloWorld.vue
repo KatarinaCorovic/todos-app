@@ -155,14 +155,14 @@ ul{
   }
 
   #buttonRemoveTask{
-    opacity: 0%;
+    // opacity: 0%;
     background-color: #3564a4;
     border:none;
     font-size: 25px;
     font-weight: bold;
     color:maroon;
     position: absolute;
-    top:20px;
+    top:30px;
     right: 70px;
     
     &:hover{
